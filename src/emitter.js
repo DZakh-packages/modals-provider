@@ -1,3 +1,3 @@
-import EventEmitter from 'eventemitter3';
+import * as EventEmitter from 'events';
 
-export const emitter = EventEmitter();
+export const emitter = new EventEmitter();
