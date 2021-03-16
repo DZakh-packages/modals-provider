@@ -1,12 +1,16 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:sonarjs/recommended', 'plugin:prettier/recommended'],
   plugins: ['optimize-regex', 'sonarjs', 'no-loops', 'no-use-extend-native', 'prettier', 'jest'],
   env: {
     es6: true,
+    browser: true,
     'jest/globals': true,
   },
   root: true,
   settings: {
+    react: {
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
     'import/resolver': {
       alias: {
         map: [['@', './src']],
@@ -30,6 +34,24 @@ module.exports = {
     'no-console': ['error', { allow: ['error'] }],
     'no-restricted-syntax': ['error', 'SequenceExpression'],
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': [
+      'warn',
+      {
+        extensions: ['.jsx', '.tsx'],
+      },
+    ],
+    'react/jsx-fragments': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
 
     // Avoid default export instead
     'import/prefer-default-export': 'off',

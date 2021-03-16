@@ -17,7 +17,7 @@ const bundlePlugins = [
   nodeResolve(),
   commonjs(),
   babel({
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
     exclude: 'node_modules/**',
   }),
   production && terser(),
