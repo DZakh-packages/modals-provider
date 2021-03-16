@@ -1,1 +1,1 @@
-# modals-provider
+# Modals provider
